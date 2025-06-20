@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Breast Cancer Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 600px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .model-select, .prediction-section {
+      margin-top: 20px;
+    }
+
+    .predict-button {
+      width: 100%;
+      padding: 10px;
+      background-color: #2d89ef;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      background: #f3f3f3;
+      padding: 15px;
+      border-left: 5px solid #2d89ef;
+    }
+
+    .malignancy {
+      font-weight: bold;
+      color: #d9534f;
+    }
+
+    .score {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Automatic Triage System for Breast Cancer Prediction</h2>
+    <p>Input 30 clinical laboratory tumor characteristics to apply trimab:</p>
+    <div class="grid">
+      <input type="text" placeholder="texture_worst: ">
+      <input type="text" placeholder="area_se: ">
+      <input type="text" placeholder="perimeter_worst: ">
+      <input type="text" placeholder="concave_points_worst: ">
+      <input type="text" placeholder="concave_points_mean: ">
+      <input type="text" placeholder="concavity_worst: ">
+      <input type="text" placeholder="area_worst: ">
+      <input type="text" placeholder="compactness_se: ">
+      <input type="text" placeholder="radius_worst: ">
+      <input type="text" placeholder="smoothness_worst: ">
+      <input type="text" placeholder="symmetry_worst: ">
+      <input type="text" placeholder="smoothness_mean: ">
+      <input type="text" placeholder="area_mean: ">
+      <input type="text" placeholder="texture_mean: ">
+      <input type="text" placeholder="concave_points_se: ">
+      <input type="text" placeholder="concavity_mean: ">
+      <input type="text" placeholder="symmetry_se: ">
+      <input type="text" placeholder="compactness_mean: ">
+      <input type="text" placeholder="radius_se: ">
+      <input type="text" placeholder="compactness_worst: ">
+      <input type="text" placeholder="fractal_dimension_mean: ">
+      <input type="text" placeholder="perimeter_se: ">
+      <input type="text" placeholder="fractal_dimension_worst: ">
+      <input type="text" placeholder="texture_se: ">
+      <input type="text" placeholder="smoothness_se: ">
+      <input type="text" placeholder="symmetry_mean: ">
+      <input type="text" placeholder="radius_mean: ">
+      <input type="text" placeholder="concavity_se: ">
+      <input type="text" placeholder="fractal_dimension_se: ">
+      <input type="text" placeholder="perimeter_mean: ">
+    </div>
+
+    <div class="model-select">
+      <label for="model">Select model:</label>
+      <select id="model">
+        <option>MLP</option>
+        <option>XGBoost</option>
+        <option>RandomForest</option>
+      </select>
+    </div>
+
+    <div class="prediction-section">
+      <p><strong>Risk:</strong> <span class="malignancy">Early Malignant</span></p>
+      <button class="predict-button">Predict</button>
+
+      <div class="result">
+        <p class="score">Malignancy score: 88.4%</p>
+        <p>Most relevant attributes: + <em>concavity_worst</em>, + <em>smoothness</em></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
